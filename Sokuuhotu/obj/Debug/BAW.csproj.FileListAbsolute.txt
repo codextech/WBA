@@ -69,3 +69,4 @@ D:\Auction Web\Sokkuhutto\Sokuuhotu\Sokuuhotu\obj\Debug\Sokuuhotu.pdb
 D:\Auction Web\Sokkuhutto\Sokuuhotu\Sokuuhotu\obj\Debug\Sokuuhotu.Migrations.Initial.resources
 D:\Auction Web\Sokkuhutto\Sokuuhotu\Sokuuhotu\obj\Debug\BAW.csproj.GenerateResource.Cache
 D:\Auction Web\Sokkuhutto\Sokuuhotu\Sokuuhotu\obj\Debug\Sokuuhotu.Migrations.TablesAdded.resources
+D:\Auction Web\Sokkuhutto\Sokuuhotu\Sokuuhotu\obj\Debug\BAW.csprojResolveAssemblyReference.cache

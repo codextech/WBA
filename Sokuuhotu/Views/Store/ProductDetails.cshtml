@@ -117,14 +117,16 @@
                 </dl>  <!-- item-property-hor .// -->
                
 
-                <dl class="param param-feature">
-                    <dd id="getting-started">
-                    
-                        @*<span id="days"></span>
-                        <span id="hours"></span>
-                        <span id="minutes"></span>
-                        <span id="seconds"></span>*@
-                    </dd>
+                <dl class="param param-feature" 
+style="line-height: 50px;
+    font-size: 25px;  
+    font-family: cursive;
+    border-radius: 5px 20px 5px;">
+            
+
+                <dd id="getting-started" style="color:#0b044f"></dd>
+                        
+                   
                 </dl>  <!-- item-property-hor .// -->
                
             
@@ -160,7 +162,7 @@
 @*<div id=""></div>*@
 <script type="text/javascript">
   $("#getting-started")
-  .countdown("2017/01/01", function(event) {
+  .countdown("@Model.EndDate", function(event) {
     $(this).text(
       event.strftime('%D days %H:%M:%S')
     );
