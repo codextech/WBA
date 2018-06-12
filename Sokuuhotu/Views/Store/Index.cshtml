@@ -1,0 +1,342 @@
+﻿@model BAW.ViewModels.CategoryProductVM
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BAWLayout.cshtml";
+   
+}
+
+
+
+
+
+
+
+<!------------------------------------
+              Home Slider Start
+      -------------------------------------->
+<div id="tg-homebanner" class="tg-homebanner tg-haslayout">
+    <figure class="item" data-vide-bg="poster: ~/Images/slider/img-01.jpg" data-vide-options="position: 50% 50%">
+        <figcaption>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="tg-bannercontent">
+                            <h1>World’s Largest Marketplace</h1>
+                            <h2>Search from 12,45,754 Awesome Verified Ads!</h2>
+                            <form class="tg-formtheme tg-formbannersearch" >
+                                <fieldset style="width:80%">
+             
+                                    
+                                    <div class="form-group tg-inputwithicon">
+                                        <i class="icon-layers"></i>
+                                        <div class="tg-select">
+                                            <select>
+                                                <option value="none">Select Category</option>
+                                                <option value="none">Mobiles</option>
+                                                <option value="none">Electronics</option>
+                                                <option value="none">Vehicles</option>
+                                                <option value="none">Bikes</option>
+                                                <option value="none">Animals</option>
+                                                <option value="none">Furniture</option>
+                                                <option value="none">toys</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group tg-inputwithicon">
+                                        <i class="icon-bullhorn"></i>
+                                        <input type="text" name="customword" class="form-control" placeholder="What are you looking for">
+                                    </div>
+
+                                    <button class="tg-btn" type="button">Search Now</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </figcaption>
+    </figure>
+</div>
+<!--------------------------------------
+        Home Slider End
+-------------------------------------->
+<!--************************************
+        Main Start
+*************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+    <!--************************************
+            Categories Search Start
+    *************************************-->
+    <section class="tg-haslayout">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-push-1 col-lg-10">
+                    <div class="tg-categoriessearch">
+                        <div class="tg-title">
+                            <h2> Categories</h2>
+                        </div>
+                        <div id="tg-categoriesslider" class="tg-categoriesslider tg-categories owl-carousel">
+                           
+                            
+                            @foreach (var item in Model.Categories)
+                            {
+                                <div class="tg-category">
+                                    <a href="@Url.Action("ProductsByCategory",new { CategoryId = item.CategoryId })">
+                                        <div class="tg-categoryholder">
+                                            <figure><img src="~/Images/bagicons.png" alt="image description" style="height: 120px;width: 115px;"></figure>
+                                            <h3>@item.CategoryName</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+          
+                           
+                      
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--************************************
+            Categories Search End
+    *************************************-->
+
+
+
+
+    <!--************************************
+            How it Works Start
+    *************************************-->
+    <section class="tg-sectionspace tg-haslayout">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="tg-sectionhead">
+                        <div class="tg-title">
+                            <h2>How It Works</h2>
+                        </div>
+                        <div class="tg-description">
+                            <p>Steps for bidding</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div id="tg-brandsslider" class="tg-brands tg-brandsslider owl-carousel">
+
+                        <figure class="item"><span><i class="fa fa-user"></i>Make Free Account</span> </figure>
+                        <figure class="item"><span><i class="fa fa-gavel"></i>Bid & Win</span> </figure>
+                        <figure class="item"><span><i class="fa fa-money"></i>Pay Seller</span> </figure>
+                        <figure class="item"><span><i class="fa fa-thumbs-up"></i>Get Product</span> </figure>
+                        @*<figure class="item"><img src="~/Images/brands/img-02.png" alt="image description"></figure>
+                            <figure class="item"><img src="~/Images/brands/img-03.png" alt="image description"></figure>
+                            <figure class="item"><img src="~/Images/brands/img-04.png" alt="image description"></figure>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--************************************
+            How it Works  End
+    *************************************-->
+
+
+
+    <!--************************************
+            Featured Ads Start
+    *************************************-->
+    <section class="tg-sectionspace tg-haslayout">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="tg-sectionhead">
+                        <div class="tg-title">
+                            <h2>Products</h2>
+                        </div>
+                        <div class="tg-description">
+                            <p>start bid</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tg-ads">
+@foreach (var item in Model.Products)
+{
+
+                    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                        
+                       
+                            <div class="tg-ad tg-verifiedad">
+
+                                <figure>
+                                    @*<span class="tg-themetag tg-featuretag">featured</span>*@
+                                    <a href="@Url.Action("ProductDetails","Store",new {Id = item.ProductId })"><img src="~/Images/ads/img-01.jpg" alt="image description"></a>
+
+                                </figure>
+                                <div class="tg-adcontent">
+                                    <ul class="tg-productcagegories">
+                                        <li><a href="@Url.Action("ProductsByCategory","Store",new {categoryId = item.CategoryId })">@item.Category.CategoryName</a></li>
+                                    </ul>
+                                    <div class="tg-adtitle">
+                                        <h3 style="text-align:center"><a href="@Url.Action("ProductDetails","Store",new {Id = item.ProductId })" >@item.ProductName</a></h3>
+                                    </div>
+                                    @*<div class="tg-adprice"><h4>$200</h4></div>*@
+
+
+                                    <span id="days"></span>
+                                    <span id="hours"></span>
+                                    <span id="minutes"></span>
+                                    <span id="seconds"></span>
+
+                                    <div class="tg-phonelike">
+                                        <small>Details </small>
+                                        @*@Html.ActionLink("ProductDetails", "Store",new { proId = item.ProductId },new {@class="tg-like tg-liked fa fa-arrow-right" })*@
+                                        <a href="@Url.Action("ProductDetails","Store",new {Id = item.ProductId })">
+                                        <span class="tg-like tg-liked"><i class="fa fa-arrow-right"></i></span>
+
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                     
+                    </div>
+
+}
+
+        
+
+
+                    
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="tg-btnbox">
+                        <a class="tg-btn" href="javascript:void(0);">View All</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    @*<!--************************************
+            Featured Ads End
+    *************************************-->
+   
+    <!--************************************
+            Testimonials Start
+    *************************************-->
+    <section class="tg-sectionspace tg-bglight tg-haslayout">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div id="tg-testimonialsslider" class="tg-testimonials tg-testimonialsslider owl-carousel">
+                        <div class="item">
+                            <div class="tg-testimonial">
+                                <figure><img src="~/Images/testimonials/img-01.jpg" alt="image description"></figure>
+                                <div class="tg-contentbox">
+                                    <h2><a href="javascript:void(0);">Jami Gheen</a></h2>
+                                    <div class="tg-description">
+                                        <p>Consectetur adipisicing elit sed eiusmod temporie icididunt ut labore et dolore magna aliquaaenim.</p>
+                                    </div>
+                                    <h3>Developer at of <a href="javascript:void(0);">xyz company</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="tg-testimonial">
+                                <figure><img src="~/Images/testimonials/img-02.jpg" alt="image description"></figure>
+                                <div class="tg-contentbox">
+                                    <h2><a href="javascript:void(0);">Johnny Zeigler</a></h2>
+                                    <div class="tg-description">
+                                        <p>Consectetur adipisicing elit sed eiusmod temporie icididunt ut labore et dolore magna aliquaaenim.</p>
+                                    </div>
+                                    <h3>Developer at of <a href="javascript:void(0);">xyz company</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="tg-testimonial">
+                                <figure><img src="~/Images/testimonials/img-01.jpg" alt="image description"></figure>
+                                <div class="tg-contentbox">
+                                    <h2><a href="javascript:void(0);">Jami Gheen</a></h2>
+                                    <div class="tg-description">
+                                        <p>Consectetur adipisicing elit sed eiusmod temporie icididunt ut labore et dolore magna aliquaaenim.</p>
+                                    </div>
+                                    <h3>Developer at of <a href="javascript:void(0);">xyz company</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="tg-testimonial">
+                                <figure><img src="~/Images/testimonials/img-02.jpg" alt="image description"></figure>
+                                <div class="tg-contentbox">
+                                    <h2><a href="javascript:void(0);">Johnny Zeigler</a></h2>
+                                    <div class="tg-description">
+                                        <p>Consectetur adipisicing elit sed eiusmod temporie icididunt ut labore et dolore magna aliquaaenim.</p>
+                                    </div>
+                                    <h3>Developer at of <a href="javascript:void(0);">xyz company</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--************************************
+            Testimonials End
+    *************************************-->*@
+
+
+
+
+</main>
+<!--************************************
+        Main End
+*************************************-->
+
+
+
+@section scripts{
+   
+
+<script>
+
+    function makeTimer() {
+
+        var endTime = new Date();
+        endTime = (Date.parse(endTime) / 1000);
+
+        var now = new Date();
+        now = (Date.parse(now) / 1000);
+
+        var timeLeft = endTime - now;
+
+        var days = Math.floor(timeLeft / 86400);
+        var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+        var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600)) / 60);
+        var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+        if (hours < "10") { hours = "0" + hours; }
+        if (minutes < "10") { minutes = "0" + minutes; }
+        if (seconds < "10") { seconds = "0" + seconds; }
+
+        $("#days").html(days + "<span>Days</span>");
+        $("#hours").html(hours + "<span>Hours</span>");
+        $("#minutes").html(minutes + "<span>Minutes</span>");
+        $("#seconds").html(seconds + "<span>Seconds</span>");
+
+    }
+
+    setInterval(function () { makeTimer(); }, 1000);
+
+</script>
+
+
+}

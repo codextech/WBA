@@ -1,0 +1,175 @@
+﻿@model BAW.Models.Product
+@{
+    ViewBag.Title = "ProductDeatils";
+    Layout = "~/Views/Shared/_BAWLayout.cshtml";
+}
+
+
+
+<style>
+
+    .gallery-wrap .img-big-wrap img {
+    height: 450px;
+    width: auto;
+    display: inline-block;
+    cursor: zoom-in;
+}
+
+
+.gallery-wrap .img-small-wrap .item-gallery {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #ddd;
+    margin: 7px 2px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.gallery-wrap .img-small-wrap {
+    text-align: center;
+}
+.gallery-wrap .img-small-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: zoom-in;
+}
+
+</style>
+
+
+
+<div id="tg-innerbanner" class="tg-innerbanner tg-haslayout">
+    <figure data-vide-bg="poster: images/slider/img-01.jpg" data-vide-options="position: 50% 50%">
+        <figcaption>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="tg-bannercontent">
+
+                            <b> Home / Product Details </b>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </figcaption>
+    </figure>
+
+</div>
+<!--************************************
+        Home Slider End
+*************************************-->
+
+
+
+
+<div class="card">
+    <div class="row">
+        <aside class="col-sm-5 border-right">
+            <article class="gallery-wrap">
+                <div class="img-big-wrap" style="margin:15px 0 0 40px;">
+                    <a href="#"><img src="~/Images/img-02.jpg"  style="height:350px;width:500px;"></a>
+                </div> <!-- slider-product.// -->
+                <div class="img-small-wrap">
+                    <div class="item-gallery"> <img src="~/Images/img-02.jpg"> </div>
+                    <div class="item-gallery"> <img src="~/Images/img-03.jpg"> </div>
+                    <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
+                    <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
+                </div> <!-- slider-nav.// -->
+            </article> <!-- gallery-wrap .end// -->
+        </aside>
+        <aside class="col-sm-7">
+            <article class="card-body p-5" style="margin-top:20px;">
+           
+            
+            
+            @if (ViewData["Message"] != null)
+           {
+
+             <span style="color:red"><b>>Attempt Fail</b>There could be only 2 bids on same product :) and You are done with 2 times</span>
+           }
+           
+              <h3 class="title mb-3">@Model.ProductName</h3>
+                <p class="price-detail-wrap">
+                    <span class="price h3 text-warning">
+                        <span class="currency">Price Is hidden</span>
+                    </span>
+                    <span>/Bid according to Product's worth</span>
+                </p> <!-- price-detail-wrap .// -->
+
+                
+
+                 
+
+                <dl class="item-property">
+                    <dt>Description</dt>
+                    <dd>
+                        <p>
+                            @Model.ProductDescription
+                        </p>
+                    </dd>
+                </dl>
+                <dl class="param param-feature">
+                    <dt>Model#</dt>
+                    <dd>12345611</dd>
+                </dl>  <!-- item-property-hor .// -->
+               
+
+                <dl class="param param-feature">
+                    <dd id="getting-started">
+                    
+                        @*<span id="days"></span>
+                        <span id="hours"></span>
+                        <span id="minutes"></span>
+                        <span id="seconds"></span>*@
+                    </dd>
+                </dl>  <!-- item-property-hor .// -->
+               
+            
+
+
+                <hr>
+               
+@using (Html.BeginForm("BidReceived", "Bid", FormMethod.Post))
+{
+    <input type="text" placeholder="Put your Price" id="price" name="price"/>
+    <input type="hidden" id="proId" name="proId" value="@Model.ProductId"/>
+    <input type="submit" class="btn btn-lg btn-success text-uppercase" value="Bid">
+    @*<a href="#" class="btn btn-lg btn-success text-uppercase">  </a>*@
+
+}
+
+      
+
+
+
+            </article> <!-- card-body.// -->
+        </aside> <!-- col.// -->
+    </div> <!-- row.// -->
+</div> <!-- card.// -->
+
+
+
+
+@section scripts{
+
+<script src="~/Scripts/jquery.countdown.js"></script>
+
+@*<div id=""></div>*@
+<script type="text/javascript">
+  $("#getting-started")
+  .countdown("2017/01/01", function(event) {
+    $(this).text(
+      event.strftime('%D days %H:%M:%S')
+    );
+  });
+</script>
+
+}
+
+
+
+
+

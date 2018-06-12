@@ -1,0 +1,169 @@
+﻿@model BAW.ViewModels.BidsByProduct
+
+@{
+    ViewBag.Title = "AllBidsByProduct";
+    Layout = "~/Views/Shared/_BuyerSellerLayout.cshtml";
+}
+
+
+
+
+
+<!--************************************
+             Dashboard Banner Start
+     *************************************-->
+<div class="tg-dashboardbanner">
+    <h1>All Bids on your Product</h1>
+
+    <div style="display:inline-block;background-color:rgba(229, 102, 37, 0.77);line-height:80px;margin:5px 0 0 55px;">
+
+        <span style="color:white">Max Bid so far:</span> <b>@Model.MaxBid</b>
+
+
+
+    </div>
+
+</div>
+<!--************************************
+        Dashboard Banner End
+*************************************-->
+<!--************************************
+                Main Start
+        *************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+    <!--************************************
+            Section Start
+    *************************************-->
+    <section class="tg-dbsectionspace tg-haslayout">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="tg-dashboardbox">
+                    <div class="tg-dashboardboxtitle">
+                        <h2>Bidders</h2>
+
+                        <button id="first">First Time Bid</button>
+                        <button id="second">Second Time Bid</button>
+
+                    </div>
+                    <div class="tg-dashboardholder">
+
+                        <table id="tg-adstype" class="table tg-dashboardtable tg-tablemyads">
+                            <thead>
+                                <tr>
+
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Contact</th>
+                                    <th>Price</th>
+                                    <th>Bid Date</th>
+
+
+
+
+
+                                </tr>
+                            </thead>
+                            <tbody id="firstbid">
+
+
+
+
+
+                                @foreach (var item in Model.FirstBidsOfProduct)
+                                {
+
+                                    <tr data-category="active">
+
+                                        <td data-title="Photo">@item.User.Email</td>
+                                        <td data-title="Title">
+                                            <h3>@item.User.Email</h3>
+
+                                        </td>
+                                        <td data-title="Category"><span class="tg-adcategories">03249429698</span></td>
+                                        <td data-title="Featured">@item.Price</td>
+                                        <td data-title="Ad Status"><span class="tg-adstatus tg-adstatusactive">@item.BidDate.ToShortDateString()</span></td>
+
+
+
+
+
+
+
+                                    </tr>
+                                }
+
+
+
+
+                            </tbody>
+
+                            <tbody id="secondbid">
+
+
+
+                                @foreach (var item in Model.SecondBidsOfProduct)
+                                {
+
+                                    <tr data-category="active">
+
+                                        <td data-title="Photo">@item.User.Email</td>
+                                        <td data-title="Title">
+                                            <h3>@item.User.Email</h3>
+
+                                        </td>
+                                        <td data-title="Category"><span class="tg-adcategories">03249429698</span></td>
+                                        <td data-title="Featured">@item.Price</td>
+                                        <td data-title="Ad Status"><span class="tg-adstatus tg-adstatusactive">@item.BidDate.ToShortDateString()</span></td>
+
+
+
+
+
+
+
+                                    </tr>
+                                }
+
+
+
+
+
+
+
+
+                            </tbody>
+
+
+
+
+
+
+
+                        </table>
+                        <nav class="tg-pagination">
+                            <ul>
+                                <li class="tg-prevpage"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li class="tg-active"><a href="#">5</a></li>
+                                <li>...</li>
+                                <li><a href="#">10</a></li>
+                                <li class="tg-nextpage"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!--************************************
+            Section End
+    *************************************-->
+</main>
+<!--************************************
+        Main End
+*************************************-->

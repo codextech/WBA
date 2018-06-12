@@ -1,0 +1,146 @@
+﻿@model IEnumerable<BAW.Models.Product>
+@{
+    ViewBag.Title = "PostedProduct";
+    Layout = "~/Views/Shared/_BuyerSellerLayout.cshtml";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--************************************
+             Dashboard Banner Start
+     *************************************-->
+<div class="tg-dashboardbanner">
+    <h1>Items For Bid</h1>
+
+</div>
+<!--************************************
+        Dashboard Banner End
+*************************************-->
+<!--************************************
+                Main Start
+        *************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+    <!--************************************
+            Section Start
+    *************************************-->
+    <section class="tg-dbsectionspace tg-haslayout">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="tg-dashboardbox">
+                    <div class="tg-dashboardboxtitle">
+                        <h2>Products</h2>
+
+                    </div>
+                    <div class="tg-dashboardholder">
+
+                        <table id="tg-adstype" class="table tg-dashboardtable tg-tablemyads">
+                            <thead>
+                                <tr>
+
+                                    <th>Photo</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                   
+
+                                    <th>Post Date</th>
+                                    <th>End Date</th>
+
+
+                                    <th>Action <small>View Bids | Delete</small> </th>
+
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+
+                                @foreach (var item in Model)
+                                {
+
+                                    <tr data-category="active">
+
+                                        <td data-title="Photo"><img src="~/Images/img-02.jpg" alt="image description" style="height:80px;width:120px;margin-left:30px"></td>
+                                        <td data-title="Title">
+                                            <h3 style="color:#040063; text-align:center" >@item.ProductName</h3>
+
+                                        </td>
+                                        <td data-title="Category"><span class="tg-adcategories">@item.Category.CategoryName</span></td>
+                                        <td data-title="Featured">$</td>
+                                        <td data-title="Ad Status"><span class="tg-adstatus tg-adstatusactive">@item.StartDate.ToShortDateString()</span></td>
+                                        <td data-title="Ad Status"><span class="tg-adstatus tg-adstatusactive">@item.EndDate.ToShortDateString()</span></td>
+
+
+
+                                        <td data-title="Action">
+                                            <div class="tg-btnsactions">
+                                                <a class="tg-btnaction tg-btnactionview" href="@Url.Action("AllBidsByProduct","Bid", new { proId = item.ProductId })"><i class="fa fa-eye"></i><small></small> </a>
+                                                <a class="tg-btnaction tg-btnactiondelete" href="javascript:void(0);"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </td>
+
+
+
+                                    </tr>
+                                }
+
+
+
+
+
+
+
+
+                            </tbody>
+
+                        
+
+
+                        </table>
+                        <nav class="tg-pagination">
+                            <ul>
+                                <li class="tg-prevpage"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li class="tg-active"><a href="#">5</a></li>
+                                <li>...</li>
+                                <li><a href="#">10</a></li>
+                                <li class="tg-nextpage"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!--************************************
+            Section End
+    *************************************-->
+</main>
+<!--************************************
+        Main End
+*************************************-->
+
+
+
+
+
+
+
