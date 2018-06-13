@@ -297,6 +297,9 @@
     <Content Include="Images\author\img-16.jpg" />
     <Content Include="Images\author\img-17.jpg" />
     <Content Include="Images\bagicons.png" />
+    <Content Include="Images\bid.jpg" />
+    <Content Include="Images\bidhand.png" />
+    <Content Include="Images\bidr.png" />
     <Content Include="Images\brands\img-01.png" />
     <Content Include="Images\brands\img-02.png" />
     <Content Include="Images\brands\img-03.png" />
@@ -311,6 +314,7 @@
     <Content Include="Images\brands\img-12.png" />
     <Content Include="Images\brands\img-13.png" />
     <Content Include="Images\brands\img-14.png" />
+    <Content Include="Images\cover.gif" />
     <Content Include="Images\electroicons.jpg" />
     <Content Include="Images\flags.png" />
     <Content Include="Images\icons\app-01.png" />
@@ -364,6 +368,7 @@
     <Content Include="Images\LogoHammer.png" />
     <Content Include="Images\logol.png" />
     <Content Include="Images\mCSB_buttons.html" />
+    <Content Include="Images\money.jpg" />
     <Content Include="Images\owl.video.play.png" />
     <Content Include="Images\pattern-01.png" />
     <Content Include="Images\pettran-01.jpg" />
@@ -421,6 +426,7 @@
     <Content Include="Images\prettyPhoto\light_square\btnNext.png" />
     <Content Include="Images\prettyPhoto\light_square\btnPrevious.png" />
     <Content Include="Images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="Images\stepbid.png" />
     <Content Include="Images\team\img-01.jpg" />
     <Content Include="Images\team\img-02.jpg" />
     <Content Include="Images\team\img-03.jpg" />
