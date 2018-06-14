@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Mvc;
 
 namespace BAW.Services
 {
@@ -33,6 +34,31 @@ namespace BAW.Services
             return await _db.Categories.ToArrayAsync();
         }
 
+        
+
+         public async Task AddProductAsync(Product model ,string userId,int closeDate)
+        {
+
+            var product = new Product
+            {
+                CategoryId = model.CategoryId,
+                ProductName = model.ProductName,
+                ProductDescription =model.ProductDescription,
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddDays(closeDate),
+
+                UserId = userId
+            };
+
+         
+
+            _db.Products.Add(product);
+
+            await _db.SaveChangesAsync();
+
+
+        }
+
 
         public async Task<IEnumerable<Product>> ProductsAsync()
         {
@@ -52,6 +78,55 @@ namespace BAW.Services
                 .ToArrayAsync();
         }
 
+
+
+
+        public async Task<IEnumerable<Product>> GetPostedProductsAsync(string userId)
+        {
+            return await _db.Products.Where(p => p.UserId == userId).ToArrayAsync();
+
+        }
+
+
+
+
+        // Edit function
+
+        public async Task ProductEditAsync(Product model, int closeinDays)
+        {
+
+            model.EndDate = model.EndDate.AddDays(closeinDays);
+
+            _db.Entry(model).State = EntityState.Modified;
+            await _db.SaveChangesAsync();
+
+
+        }
+
+
+
+
+        public async Task<IEnumerable<Product>> SearchAsync(string search)
+        {
+            return await _db.Products.Include("Category").Where(p => p.ProductName.Contains(search.ToLower()) )
+                .ToArrayAsync();
+        }
+
+
+
+        //************Without async*************
+        //public IEnumerable<SelectListItem> CategoryList()
+        //{
+
+        //    var list = new SelectList(_db.Categories, "CategoryId", "CategoryName");
+        //    return list;
+        //}
+
+        //Find Product by ID /For Edit Action
+        public Product FindProduct(int? productId)
+        {
+            return _db.Products.Find(productId);
+        }
 
 
     }

@@ -46,7 +46,7 @@
             margin: 0 0 40px;
             background: #fcfcfc;
             border: 1px solid #eaedef;
-            height: 323px;
+            height: 357px;
         }
 
         #logoimg {
@@ -54,6 +54,7 @@
             height: 100px;
             max-width: 100%;
         }
+        a{text-decoration:none}
     </style>
 
 
@@ -67,7 +68,7 @@
 
 
 
-<body style="background-image:url('~/Images/bidhand.png');background-repeat:no-repeat;background-size:100%">
+<body style="background-image:url('../../Images/bidhand.png');background-repeat:no-repeat;background-size:100%">
     <div class="container" style="margin-right:0">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -107,22 +108,29 @@
                                                     @Html.TextBoxFor(m => m.Password, new { @class = "form-control", name = "Password", placeholder = "Password" })
                                                 </div>
 
+
                                                 <div class="form-group">
+                                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                                    <span>Remember Me</span> 
+                                                </div>
+
+                                                @*<div class="form-group">
                                                     <div class="tg-checkbox">
                                                         @Html.CheckBoxFor(m => m.RememberMe, new { id = "tg-rememberme" ,type = "checkbox", name = "rememberme" })
-                                                        @*<input id="tg-rememberme" type="checkbox" name="rememberme" value="rememberme">*@
+                                                        @*<input id="tg-rememberme" type="checkbox" name="rememberme" value="rememberme">
                                                         <label for="tg-rememberme">Keep me logged in</label>
                                                     </div>
                                                     <a class="tg-forgetpassword" href="javascript:void(0);">Forgot Password?</a>
-                                                </div>
+                                                </div> 
+                                                *@
                                                 @*<button class="tg-btn" type="button">Login</button>*@
-                                                <button type="submit" value="Log in" class="tg-btn"></button>
+                                                <input type="submit" value="Log in" class="btn btn-success">
 
 
                                             </fieldset>
                                         }
-                                        <p>
-                                            @Html.ActionLink("Register as a new user", "Register")
+                                        <p style="padding-left: 19px">
+                                            @Html.ActionLink("Register as a new user", "Register" )
                                         </p>
 
                                     </div>
